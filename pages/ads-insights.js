@@ -22,7 +22,12 @@ import adsInsights from '../constants/ads-insights.json';
 
 import styles from '../styles/style.module.css';
 
-const AdsInsights = ({ filters, handleFiltersChange, adAccountId, handleAdAccountIdChange }) => {
+const AdsInsights = ({
+  filters = { messenger_only: true, active_only: true },
+  handleFiltersChange = () => {},
+  adAccountId = '',
+  handleAdAccountIdChange = () => {},
+} = {}) => {
   const adsInsightsAdAccounts = useSelector(state => state.adsInsightsAdAccounts);
   const adsInsightsAccountsData = useSelector(state => state.adsInsightsAccount);
   const adsInsightsCampaignData = useSelector(state => state.adsInsightsCampaigns);
